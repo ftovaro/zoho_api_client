@@ -44,11 +44,13 @@ header {
   text-align: right;
   margin-top: 2%;
 }
+
 .navbar-iqthink .main-navbar a {
   margin-left: 2%;
   margin-right: 2%;
   color: #626261;
   font-weight: bold;
+  font-size: 17px;
 }
 .navbar-iqthink .main-navbar .trial-button {
   color: white;
@@ -87,17 +89,22 @@ header {
   margin-bottom: 5%;
 }
 .searchbox .whitebox #sourceForm h4 {
-  margin-top: 13%;
-  margin-bottom: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 .searchbox .whitebox #leadForm h4 {
-  margin-top: 6%;
-  margin-bottom: 10%;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 .searchbox .whitebox h4 {
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+.searchbox .whitebox .by-index {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .searchbox .whitebox {
