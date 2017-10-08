@@ -1,11 +1,25 @@
 $(document).ready(function() {
   var CURRENT_PAGE_LEADS = 0;
   var CURRENT_PAGE_SOURCE = 0;
-  var CURRENT_URL = ""
+  var CURRENT_URL = "";
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
   $( "#fetch-data" ).hide();
-  // $('#table-result').DataTable();
-// http://localhost:3001/api/v1/leads/search_others?name=james&phone=555-555-5555&records=10&page=1
-  // http://localhost:3000/api/v1/leads?&records=2&page=2
 
   function createTable(data) {
     $('#result-search-container').remove();
@@ -65,6 +79,23 @@ $(document).ready(function() {
     return url;
   }
 
+  function createSubmitURL(zoho_id, phone, mobile){
+    first = true;
+    url = 'http://localhost:3001/api/v1/leads/search_lead?'
+    if (zoho_id != "") {
+      url += "id=" + zoho_id;
+    } else {
+      if (phone != "") {
+        url += "&phone=" + phone;
+      }
+      if (mobile != "") {
+        url += "&mobile=" + mobile;
+      }
+    }
+    url += "&records=25&page=1"
+    return url;
+  }
+
   function createURLSource(source){
     url = 'http://localhost:3001/api/v1/leads/seach_source?'
     if (source != "") {
@@ -87,6 +118,7 @@ $(document).ready(function() {
       type: 'GET',
       success: function(data){
         $( "#fetch-data" ).show();
+        toastr.success('Search success');
         evalutePage(data, url)
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -105,8 +137,7 @@ $(document).ready(function() {
       url : url + CURRENT_PAGE_SOURCE,
       type: 'GET',
       success: function(data){
-        console.log(data);
-        console.log(url + CURRENT_PAGE_SOURCE);
+        toastr.success('Search success');
         $( "#fetch-data" ).show();
         evalutePage(data, url)
       },
@@ -116,62 +147,48 @@ $(document).ready(function() {
     })
   }
 
-  $("#leadForm").submit(leadFormEvent);
-  $("#sourceForm").submit(sourceFormEvent);
-
-  $( "#fetch-data" ).click(function() {
-    var page = 0;
-    if (CURRENT_PAGE_LEADS != 0) {
-      page = ++CURRENT_PAGE_LEADS;
-      console.log("LEADS" + page);
-    } else {
-      page = ++CURRENT_PAGE_SOURCE;
-      console.log("SOURCE" + page);
-    }
-    console.log( CURRENT_URL + page);
+  submitFormEvent = function(event){
+    event.preventDefault();
+    var zoho_id = $("#submit-form-container").find('input[name="zoho_id"]').val().trim();
+    var phone = $("#submit-form-container").find('input[name="phone"]').val().trim();
+    var mobile = $("#submit-form-container").find('input[name="mobile"]').val().trim();
+    var url = createSubmitURL(zoho_id, phone, mobile);
     $.ajax({
-      url : CURRENT_URL + page,
+      url : url,
       type: 'GET',
       success: function(data){
         console.log(data);
-        if (data.length == 0) {
-          $( "#fetch-data" ).hide();
-        } else {
-          fetchDataToTable(data);
-        }
+        toastr.success('Lead added');
+        createTable(data)
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);
       }
     })
-  });
+  }
 
-  $("#submitForm").submit(function(event) {
-    event.preventDefault();
-    var zoho_id = $("#submit-form-container").find('input[name="zoho_id"]').val();
-    var phone = $("#submit-form-container").find('input[name="phone"]').val();
-    var mobile = $("#submit-form-container").find('input[name="mobile"]').val();
-    console.log("Nombre del zoho_id: " + zoho_id);
-    console.log("Nombre del phone: " + phone);
-    console.log("Nombre del mobile: " + mobile);
-    $('#table-result').remove();
-    $("#result-search-container").append("<table id='table-result' style='width:100%'></table>");
+  $("#leadForm").submit(leadFormEvent);
+  $("#sourceForm").submit(sourceFormEvent);
+  $("#submitForm").submit(submitFormEvent);
+
+  $( "#fetch-data" ).click(function() {
+    var page = 0;
+    if (CURRENT_PAGE_LEADS != 0) {
+      page = ++CURRENT_PAGE_LEADS;
+    } else {
+      page = ++CURRENT_PAGE_SOURCE;
+    }
     $.ajax({
-      url : 'http://localhost:3001/api/v1/leads/search_lead?id=' + zoho_id,
+      url : CURRENT_URL + page,
       type: 'GET',
       success: function(data){
-        console.log(data);
-        $('#search-counter').text(data.length);
-        data.forEach(function(element) {
-          console.log(element);
-          $("#table-result").append("<tr><th>Zoho id</th><th>Phone</th><th>Mobile</th></tr>");
-          $("#table-result").append("<tr>"
-                                        + "<td>" + element.name + "</td>"
-                                        + "<td>" + element.company + "</td>"
-                                        + "<td>" + element.source + "</td>"
-                                      + "</tr>"
-                                    );
-        });
+        if (data.length == 0) {
+          $( "#fetch-data" ).hide();
+          toastr.info('Nothing else to show');
+        } else {
+          toastr.success('More data fetched');
+          fetchDataToTable(data);
+        }
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);

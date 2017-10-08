@@ -5,10 +5,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
     script(src='//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js')
     script(src='/javascripts/main.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')
   header.navbar-iqthink
     div.col-md-12.header-bar
     div.col-md-12.main-navbar
@@ -17,6 +19,5 @@ html
       .right-side.col-md-8
         a(href="/submit") Submit
         a(href="/") Search
-        a(href="/about") About
   body
     block content
