@@ -15,7 +15,7 @@ Here you can search for leads.
 
 ![search](https://github.com/ftovaro/zoho_api_client/blob/master/doc/search.png)
 
-## Search ##
+## Submit ##
 
 Here you can submit leads.
 
