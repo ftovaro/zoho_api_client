@@ -38,15 +38,11 @@ header {
 }
 .navbar-iqthink .main-navbar {
   background-color: white;
-  padding-top: 1%;
-  padding-bottom: 1%;
 }
 
 .main-navbar .right-side {
   text-align: right;
-}
-.navbar-iqthink .main-navbar img {
-  max-height: 40px;
+  margin-top: 2%;
 }
 .navbar-iqthink .main-navbar a {
   margin-left: 2%;

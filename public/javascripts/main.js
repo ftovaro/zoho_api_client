@@ -123,6 +123,7 @@ $(document).ready(function() {
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);
+          toastr.error("Error: " + errorThrown);
       }
     })
   }
@@ -143,6 +144,7 @@ $(document).ready(function() {
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);
+          toastr.error("Error: " + errorThrown);
       }
     })
   }
@@ -163,6 +165,7 @@ $(document).ready(function() {
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);
+          toastr.error("Error: " + errorThrown);
       }
     })
   }
@@ -192,6 +195,7 @@ $(document).ready(function() {
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
           console.log("Error: " + errorThrown);
+          toastr.error("Error: " + errorThrown);
       }
     })
   });
