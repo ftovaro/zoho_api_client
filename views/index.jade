@@ -1,0 +1,23 @@
+extends layout
+block content
+  div.searchbox.col-md-12
+    div.whitebox
+      h3 Search a lead
+      h4 - by -
+      div
+        form#sourceForm(action='/')
+          #source-form-container.input-group
+            input.form-control(type='text', placeholder='Source', name='source')
+            input.btn.btn-success.form-control(type='submit', value='Submit')
+        form#leadForm(action='/')
+          #leads-form-container.input-group
+            h4 - or by -
+            input.form-control(type='text', placeholder='Name', name='name')
+            input.form-control(type='text', placeholder='Company', name='company')
+            input.form-control(type='text', placeholder='Phone', name='phone')
+            input.btn.btn-success.form-control(type='submit', value='Submit')
+  div.col-md-12.result-featured-container
+    input#fetch-data.btn.btn-primary.col-md-2.col-md-offset-5(type='submit', value='Load more data')
+    #result-search-container
+      #result-search
+        table#table-result.display(style='width:100%' cellspacing="0")

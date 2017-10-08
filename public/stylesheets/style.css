@@ -1,0 +1,221 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #ECF1F4 !important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
+.header-bar a {
+  font-weight: bold;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.header-bar .florida {
+  color: #626261;
+}
+
+.header-bar .login {
+  color: #00BE8F;
+}
+
+.navbar-iqthink {
+  border-radius: 0px;
+  position: relative;
+}
+.navbar-iqthink .main-navbar {
+  background-color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.main-navbar .right-side {
+  text-align: right;
+}
+.navbar-iqthink .main-navbar img {
+  max-height: 40px;
+}
+.navbar-iqthink .main-navbar a {
+  margin-left: 2%;
+  margin-right: 2%;
+  color: #626261;
+  font-weight: bold;
+}
+.navbar-iqthink .main-navbar .trial-button {
+  color: white;
+  font-weight: inherit;
+}
+.navbar-iqthink .main-navbar .trial-button {
+  background-color: #0087BD !important;
+  border: none !important;
+  box-shadow: 0px 2px 0px #0073A1;
+}
+.header-bar {
+  background-color: #403F3F;
+  margin: 0;
+  height: 15px;
+  text-align: right;
+  padding-top: 0.7%;
+}
+
+.header-bar a {
+  color: white;
+  margin-top: 9px;
+}
+
+.searchbox {
+  min-height: 310px !important;
+  text-align: center;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.searchbox h3 {
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+.searchbox .whitebox #submitForm h4 {
+  margin-top: 18%;
+  margin-bottom: 5%;
+}
+.searchbox .whitebox #sourceForm h4 {
+  margin-top: 13%;
+  margin-bottom: 5%;
+}
+.searchbox .whitebox #leadForm h4 {
+  margin-top: 6%;
+  margin-bottom: 10%;
+}
+
+.searchbox .whitebox h4 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.searchbox .whitebox {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.9);
+  padding: 1% 0% 2% 0%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 3%;
+}
+
+#submit-form-container input[name=phone] {
+  margin-bottom: 2%;
+}
+
+#submit-form-container input[name=mobile] {
+  margin-bottom: 3%;
+}
+
+#submit-form-container input[name=source] {
+  margin-bottom: 3%;
+}
+
+#source-form-container input[name=source] {
+  margin-bottom: 1%;
+}
+#source-form-container {
+  width: 60%;
+  text-align: center;
+  display: inline-block;
+}
+#leads-form-container {
+  width: 60%;
+  text-align: center;
+  display: inline-block;
+}
+#submit-form-container {
+  width: 60%;
+  text-align: center;
+  display: inline-block;
+}
+#leads-form-container input {
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.text-featured {
+  margin-left: 3%;
+}
+
+.name-featured {
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+.provider-featured {
+  color: grey;
+  margin-top: 7%;
+}
+
+.card-featured {
+  margin-bottom: 2%;
+}
+
+.result-featured-container {
+  background-color: #ECF1F4;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+#result-search {
+  /*position: absolute;
+  margin-left: 10%;
+  margin-right: 3%;*/
+}
+
+#search-counter {
+  font-weight: bold;
+  color: #3ABA92;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 10%;
+}
+
+#search-counter-text {
+  display: inline-block;
+}
+
+#featured-text {
+  margin-left: 9%;
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+#florida-text {
+  margin-top: 4%;
+}
+
+#addon-search {
+  background-color: #00BE8F;
+  color: white;
+}
+
+.btn-success {
+  background-color: #00BE8F !important;
+  color: white !important;
+}
+
+.card-search {
+  height: 200px;
+  margin-bottom: 2%;
+  background-color:white;
+  padding: 0;
+  box-shadow: 0px 3px 1px #E5E4E4;
+  margin-right: 2%;
+}

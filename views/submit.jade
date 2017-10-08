@@ -1,0 +1,19 @@
+extends layout
+block content
+  div.searchbox.col-md-12
+    div.whitebox
+      h3 You can add leads from Zoho
+      h4 - by -
+      div
+        form#submitForm(action='/')
+          #submit-form-container.input-group
+            input.form-control(type='text', placeholder='Zoho ID', name='zoho_id')
+            h4 - or by -
+            input.form-control(type='text', placeholder='Phone', name='phone')
+            input.form-control(type='text', placeholder='Mobile', name='mobile')
+            input.btn.btn-success.form-control(type='submit', value='Submit')
+  div.col-md-12.result-featured-container
+    input#fetch-data.btn.btn-primary.col-md-2.col-md-offset-5(type='submit', value='Load more data')
+    #result-search-container
+      #result-search
+        table#table-result.display(style='width:100%' cellspacing="0")
